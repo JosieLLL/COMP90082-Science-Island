@@ -1,0 +1,11 @@
+.header_container {
+    height: 70px;
+    width: 100%;
+    background-color: #09203f;
+    display: flex;
+    .ant-image {
+        justify-content: left;
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+}

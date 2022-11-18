@@ -1,0 +1,589 @@
+{
+    "info": {
+        "_postman_id": "c6a53dad-e817-4af7-a8ec-e87ed6e6fd0d",
+        "name": "Science-Island-Online",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "NewActivity",
+            "item": [
+                {
+                    "name": "getExistFolder",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "",
+                                "type": "default"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/get-exist-folder",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "get-exist-folder"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "NewFolder",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "",
+                                "type": "default"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "folderName",
+                                    "value": "folder1",
+                                    "type": "default"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/new-folder",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "new-folder"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "getExistTopic",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "v2.local.9KJDEDTNwiIRvyJKQSzbnVS8IDoHU4MLrYTmdVvwA0vg7lJTILtRI-mWLQjbfURqKY-CQD_iERBmGp2Bc6ibqimqyHM5gjLkZc91c_bSBLRhcfnb9BSBCTbADKwM4R5HDR-IenBNbuzZcF9eeAqdAUgmNAq0Ezev1lGLkmikhqh8qrvLfE1zF34dPao7nBQddHaITgfNgspntmnh1wJ407cVl8truReUtKIN5Roe9QP54U3cm_P4d0NPYIZ2fNygDHQU.bnVsbA",
+                                "type": "default"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/get-exist-topic",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "get-exist-topic"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "NewTopic",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "",
+                                "type": "default"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "topicName",
+                                    "value": "topic1",
+                                    "type": "default"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/new-topic",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "new-topic"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "getExistRealm",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "v2.local.9KJDEDTNwiIRvyJKQSzbnVS8IDoHU4MLrYTmdVvwA0vg7lJTILtRI-mWLQjbfURqKY-CQD_iERBmGp2Bc6ibqimqyHM5gjLkZc91c_bSBLRhcfnb9BSBCTbADKwM4R5HDR-IenBNbuzZcF9eeAqdAUgmNAq0Ezev1lGLkmikhqh8qrvLfE1zF34dPao7nBQddHaITgfNgspntmnh1wJ407cVl8truReUtKIN5Roe9QP54U3cm_P4d0NPYIZ2fNygDHQU.bnVsbA",
+                                "type": "default"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/get-exist-realm",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "get-exist-realm"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "NewRealm",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "",
+                                "type": "default"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "realmName",
+                                    "value": "realm1",
+                                    "type": "default"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/new-realm",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "new-realm"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "getExistKeyConcept",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "v2.local.9KJDEDTNwiIRvyJKQSzbnVS8IDoHU4MLrYTmdVvwA0vg7lJTILtRI-mWLQjbfURqKY-CQD_iERBmGp2Bc6ibqimqyHM5gjLkZc91c_bSBLRhcfnb9BSBCTbADKwM4R5HDR-IenBNbuzZcF9eeAqdAUgmNAq0Ezev1lGLkmikhqh8qrvLfE1zF34dPao7nBQddHaITgfNgspntmnh1wJ407cVl8truReUtKIN5Roe9QP54U3cm_P4d0NPYIZ2fNygDHQU.bnVsbA",
+                                "type": "default"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/get-exist-keyConcept",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "get-exist-keyConcept"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "NewKeyConcept",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "",
+                                "type": "default"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "keyConceptName",
+                                    "value": "keyConcept1",
+                                    "type": "default"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/new-keyConcept",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "new-keyConcept"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "getExistPurpose",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "v2.local.9KJDEDTNwiIRvyJKQSzbnVS8IDoHU4MLrYTmdVvwA0vg7lJTILtRI-mWLQjbfURqKY-CQD_iERBmGp2Bc6ibqimqyHM5gjLkZc91c_bSBLRhcfnb9BSBCTbADKwM4R5HDR-IenBNbuzZcF9eeAqdAUgmNAq0Ezev1lGLkmikhqh8qrvLfE1zF34dPao7nBQddHaITgfNgspntmnh1wJ407cVl8truReUtKIN5Roe9QP54U3cm_P4d0NPYIZ2fNygDHQU.bnVsbA",
+                                "type": "default"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/get-exist-purpose",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "get-exist-purpose"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "NewPurpose",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "",
+                                "type": "default"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "purposeName",
+                                    "value": "purpose1",
+                                    "type": "default"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/new-purpose",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "new-purpose"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "getExistAgeRange",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "v2.local.9KJDEDTNwiIRvyJKQSzbnVS8IDoHU4MLrYTmdVvwA0vg7lJTILtRI-mWLQjbfURqKY-CQD_iERBmGp2Bc6ibqimqyHM5gjLkZc91c_bSBLRhcfnb9BSBCTbADKwM4R5HDR-IenBNbuzZcF9eeAqdAUgmNAq0Ezev1lGLkmikhqh8qrvLfE1zF34dPao7nBQddHaITgfNgspntmnh1wJ407cVl8truReUtKIN5Roe9QP54U3cm_P4d0NPYIZ2fNygDHQU.bnVsbA",
+                                "type": "default"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/get-exist-ageRange",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "get-exist-ageRange"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "NewAgeRange",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "",
+                                "type": "default"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "ageRangeName",
+                                    "value": "ageRange1",
+                                    "type": "default"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity/new-ageRange",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity", "new-ageRange"]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "NewActivity",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "",
+                                "type": "default"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "folderid",
+                                    "value": "",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "questName",
+                                    "value": "",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "questType",
+                                    "value": "",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "activityid",
+                                    "value": "",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "resourceUrl",
+                                    "value": "",
+                                    "type": "default"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/new-activity",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["new-activity"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "ActivityPool",
+            "item": [
+                {
+                    "name": "activity-pool",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "v2.local.7gly8vJ6FCA0jseE62AAYBTk-uNdnT-wWI-0A-W-v-uNBgz2fbKfSgQx7IkfzZh7mWFgZFzgeYbDJhB969ygIOlIOuc7A_FooRS-sSLUkv20crHY9qqocLv-C65HD90-lY9wjzW96w3waG7kl2vYitX59DbwvPsS3KRktzCn64K3_6J8ZmvbNHMVUxNw5YvZn1GJgEVlmStcT5mipHttCNYBqooWvfSpTYU1zE5PiWZO03tGQ69vuHUEJxgK.bnVsbA",
+                                "type": "default"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/activity-pool?page=1&pageLimit=10&status=0&questType=Book,Animation,Quiz,Game,Song,Other&learningArea=English,Mathematics,Science,Humanities and Social Sciences&generalCapability=Literacy,Critical and Creative Thinking&folderName=folder1",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["activity-pool"],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "pageLimit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "status",
+                                    "value": "0"
+                                },
+                                {
+                                    "key": "questType",
+                                    "value": "Book,Animation,Quiz,Game,Song,Other"
+                                },
+                                {
+                                    "key": "learningArea",
+                                    "value": "English,Mathematics,Science,Humanities and Social Sciences"
+                                },
+                                {
+                                    "key": "generalCapability",
+                                    "value": "Literacy,Critical and Creative Thinking"
+                                },
+                                {
+                                    "key": "folderName",
+                                    "value": "folder1"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "eachActivity",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "userid",
+                                "value": "1",
+                                "type": "default"
+                            },
+                            {
+                                "key": "token",
+                                "value": "v2.local.7gly8vJ6FCA0jseE62AAYBTk-uNdnT-wWI-0A-W-v-uNBgz2fbKfSgQx7IkfzZh7mWFgZFzgeYbDJhB969ygIOlIOuc7A_FooRS-sSLUkv20crHY9qqocLv-C65HD90-lY9wjzW96w3waG7kl2vYitX59DbwvPsS3KRktzCn64K3_6J8ZmvbNHMVUxNw5YvZn1GJgEVlmStcT5mipHttCNYBqooWvfSpTYU1zE5PiWZO03tGQ69vuHUEJxgK.bnVsbA",
+                                "type": "default"
+                            }
+                        ],
+                        "url": {
+                            "raw": "http://3.90.204.186:8088/activity-pool/1",
+                            "protocol": "http",
+                            "host": ["3", "90", "204", "186"],
+                            "port": "8088",
+                            "path": ["activity-pool", "1"]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "register",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "email",
+                            "value": "new-account@qq.com",
+                            "type": "default"
+                        },
+                        {
+                            "key": "password",
+                            "value": "valuedsa",
+                            "type": "default"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://3.90.204.186:8088/register",
+                    "protocol": "http",
+                    "host": ["3", "90", "204", "186"],
+                    "port": "8088",
+                    "path": ["register"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "email",
+                            "value": "new-account@qq.com",
+                            "type": "default"
+                        },
+                        {
+                            "key": "password",
+                            "value": "valuedsa",
+                            "type": "default"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "http://3.90.204.186:8088/login",
+                    "protocol": "http",
+                    "host": ["3", "90", "204", "186"],
+                    "port": "8088",
+                    "path": ["login"]
+                }
+            },
+            "response": []
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+.mapping-results-container {
+    height: 100%;
+    overflow-y: scroll;
+    .content {
+        height: 100%;
+        .ant-descriptions {
+            .ant-descriptions-header {
+                .ant-descriptions-title {
+                    color: #555555;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            }
+            .ant-descriptions-view {
+                .ant-descriptions-item-container {
+                    .ant-descriptions-item-label {
+                        width: 23%;
+                    }
+                    .ant-descriptions-item-content {
+                        .ant-table-wrapper {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

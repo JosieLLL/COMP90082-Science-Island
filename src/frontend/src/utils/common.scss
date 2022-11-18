@@ -1,0 +1,299 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+}
+
+/* Basic */
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.thin-scroll-bar {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+        width: px2Rem(3px);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #000;
+    }
+}
+
+/* Media query */
+/* pc width > 1920px */
+html,
+body {
+    font-size: 25.6px;
+}
+/* pc width <1920px */
+@media screen and (max-width: 1920px) {
+    html,
+    body {
+        font-size: 19.2px;
+    }
+}
+/* pc width <1680px */
+@media screen and (max-width: 1680px) {
+    html,
+    body {
+        font-size: 16.8px;
+    }
+}
+/* pc width <1440px */
+@media screen and (max-width: 1440px) {
+    html,
+    body {
+        font-size: 14.4px;
+    }
+}
+/* ipad pro */
+@media screen and (max-width: 1366px) {
+    html,
+    body {
+        font-size: 13.66px;
+    }
+}
+/* ipad */
+@media screen and (max-width: 768px) {
+    html,
+    body {
+        font-size: 7.68px;
+    }
+}
+/* iphone6 7 8 plus */
+@media screen and (max-width: 414px) {
+    html,
+    body {
+        font-size: 4.14px;
+    }
+}
+/* iphoneX */
+@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 3) {
+    html,
+    body {
+        font-size: 3.75px;
+    }
+}
+/* iphone6 7 8 */
+@media screen and (max-width: 375px) and (-webkit-device-pixel-ratio: 2) {
+    html,
+    body {
+        font-size: 3.75px;
+    }
+}
+/* iphone5 */
+@media screen and (max-width: 320px) {
+    html,
+    body {
+        font-size: 3.2px;
+    }
+}
+
+@function px2Rem($px, $base-font-size: 14.4px) {
+    @if (unitless($px)) {
+        @return ($px / 14.4) * 1rem;
+    } @else if (unit($px) == em) {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1rem;
+}
+
+/* Bg Color Classes */
+.main_bg_color {
+    background-color: #09203f;
+}
+
+.main_bg_color_grey {
+    background-color: #e5e5e5;
+}
+
+.bg_color_fff {
+    background-color: #fff;
+}
+
+/* Ft Color Classes */
+
+.ft_color_fff {
+    color: #ffffff;
+}
+
+.ft_color_555 {
+    color: #555555;
+}
+
+.ft_color_000 {
+    color: #000000;
+}
+
+.ft_color_0F8AB0 {
+    color: #0f8ab0;
+}
+
+.ft_color_AAA4A4 {
+    color: #aaa4a4;
+}
+
+/* Ft Size Classes */
+.fz_12 {
+    font-size: px2Rem(12px);
+}
+
+.fz_14 {
+    font-size: px2Rem(14px);
+}
+
+.fz_16 {
+    font-size: px2Rem(16px);
+}
+
+.fz_18 {
+    font-size: px2Rem(18px);
+}
+
+.fz_20 {
+    font-size: px2Rem(20px);
+}
+
+.fz_22 {
+    font-size: px2Rem(22px);
+}
+
+.fz_24 {
+    font-size: px2Rem(24px);
+}
+
+/* Ft Weight Classes */
+
+.fw_bold {
+    font-weight: bold;
+}
+
+/* Margin Classes */
+.mb_5 {
+    margin-bottom: px2Rem(5px);
+}
+
+.mb_10 {
+    margin-bottom: px2Rem(10px);
+}
+
+.mb_15 {
+    margin-bottom: px2Rem(15px);
+}
+
+.mr_5 {
+    margin-right: px2Rem(5px);
+}
+
+.mr_15 {
+    margin-right: px2Rem(15px);
+}
+
+/* Padding Classes */
+.pd_5 {
+    padding: px2Rem(5px);
+}
+
+.pd_10 {
+    padding: px2Rem(10px);
+}
+
+.pd_15 {
+    padding: px2Rem(15px);
+}
+
+/* Border Classes */
+
+.bd_AAA4A4 {
+    border: 1px solid #aaa4a4;
+}
+
+.flex-justify-between {
+    display: flex;
+    justify-content: space-between;
+}

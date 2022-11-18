@@ -1,0 +1,17 @@
+.ant-breadcrumb {
+    width: 100%;
+    ol {
+        height: px2Rem(30px);
+        li {
+            font-size: px2Rem(15px);
+            &::marker {
+                content: '';
+            }
+            span {
+                display: inline-block;
+                height: 100%;
+                line-height: px2Rem(30px);
+            }
+        }
+    }
+}

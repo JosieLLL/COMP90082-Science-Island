@@ -1,0 +1,25 @@
+.login-container {
+    position: relative;
+    height: 100%;
+    .layout-container {
+        height: 100%;
+        .ant-layout-content {
+            position: relative;
+            .topTitle {
+                height: px2Rem(160px);
+                margin-top: px2Rem(60px);
+                .title {
+                    text-align: center;
+                    font-size: px2Rem(24px);
+                }
+            }
+            .office-woman-pic {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: px2Rem(329px);
+                height: px2Rem(466px);
+            }
+        }
+    }
+}

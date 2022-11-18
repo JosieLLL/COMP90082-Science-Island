@@ -1,0 +1,23 @@
+version: '3'
+services:
+  go_web:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: backend
+    container_name: backend
+    restart: always
+    environment:
+      MYSQL_DSN: "root:root@tcp/scienceisland?charset=utf8&parseTime=True&loc=Local"
+    ports:
+      - 8088:8088
+
+  frontend:
+    container_name: "SI-Mapping-frontend"
+    build:
+      context: ./frontend
+      dockerfile: prod.Dockerfile
+    env_file:
+      - ./frontend/.env.production
+    ports:
+      - "3000:3000"

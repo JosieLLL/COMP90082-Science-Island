@@ -1,0 +1,258 @@
+-- Table `User`
+CREATE TABLE IF NOT EXISTS `user` (
+  `UserID` INT(64) PRIMARY KEY auto_increment,
+  `Email` VARCHAR(100) NOT NULL UNIQUE,
+  `PasswordHash` VARCHAR(60) NOT NULL,
+  INDEX `User_Email_idx` (`UserID` ASC)
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `folder` (
+  `FolderID` INT(64) PRIMARY KEY auto_increment,
+  `FolderName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `realm` (
+  `RealmID` INT(64) PRIMARY KEY auto_increment,
+  `RealmName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `topic` (
+  `TopicID` INT(64) PRIMARY KEY auto_increment,
+  `TopicName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `keyconcept` (
+  `KeyConceptID` INT(64) PRIMARY KEY auto_increment,
+  `KeyConceptName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `purpose` (
+  `PurposeID` INT(64) PRIMARY KEY auto_increment,
+  `PurposeName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `agerange` (
+  `AgeRangeID` INT(64) PRIMARY KEY auto_increment,
+  `AgeRangeName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `scientist` (
+  `ScientistID` INT(64) PRIMARY KEY auto_increment,
+  `ScientistName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `institution` (
+  `InstitutionID` INT(64) PRIMARY KEY auto_increment,
+  `InstitutionName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `field` (
+  `FieldID` INT(64) PRIMARY KEY auto_increment,
+  `FieldName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `country` (
+  `CountryID` INT(64) PRIMARY KEY auto_increment,
+  `CountryName` VARCHAR(100) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+-- Table `Activity`
+CREATE TABLE IF NOT EXISTS `activity` (
+  `ActivityID` INT(64) PRIMARY KEY auto_increment, 
+  `QuestName` VARCHAR(100),
+  `QuestType` ENUM('Quiz', 'Animation', 'Game', 'Song', 'Book', 'Other'),
+  `ResourceURL` VARCHAR(200),
+  `Link` VARCHAR(200),
+  `CreateDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `QuestionSpoken` VARCHAR(100) ,
+  `RealWorldConnection` VARCHAR(100),
+  `ContentDescription` VARCHAR(500),
+  `Outcomes` VARCHAR(500), 
+
+  `AuthorPhone` VARCHAR(60),
+  `AuthorTitle` VARCHAR(60),
+  `AuthorEmail` VARCHAR(60),
+ 
+  `FolderID`  INT(64), 
+  `RealmID` INT(64),
+  `TopicID` INT(64),
+  `KeyConceptID` INT(64),
+  `PurposeID` INT(64),
+  `AgeRangeID` INT(64),
+  `ScientistID` INT(64),
+  `InstitutionID` INT(64),
+  `FieldID` INT(64),
+  `CountryID` INT(64),
+
+  `MappingPersonPhone` VARCHAR(60),
+  `MappingPersonName` VARCHAR(60),
+  `MappingPersonEmail` VARCHAR(60),
+  `MapDate` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `MapStatus` BOOL DEFAULT FALSE NOT NULL,
+
+  CONSTRAINT `Activity_Folder` FOREIGN KEY (`FolderID`) REFERENCES `folder` (`FolderID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_Realm` FOREIGN KEY (`RealmID`) REFERENCES `realm` (`RealmID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_Topic` FOREIGN KEY (`TopicID`) REFERENCES `topic` (`TopicID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_KeyConcept` FOREIGN KEY (`KeyConceptID`) REFERENCES `keyconcept` (`KeyConceptID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_Purpose` FOREIGN KEY (`PurposeID`) REFERENCES `purpose` (`PurposeID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_AgeRange` FOREIGN KEY (`AgeRangeID`) REFERENCES `agerange` (`AgeRangeID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_Scientist` FOREIGN KEY (`ScientistID`) REFERENCES `scientist` (`ScientistID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_Institution` FOREIGN KEY (`InstitutionID`) REFERENCES `institution` (`InstitutionID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_Field` FOREIGN KEY (`FieldID`) REFERENCES `field` (`FieldID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Activity_Country` FOREIGN KEY (`CountryID`) REFERENCES `country` (`CountryID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+-- Table `Curriculum`
+CREATE TABLE IF NOT EXISTS `curriculum` (
+  `CurriculumID` CHAR(100)  PRIMARY KEY,
+  `EducationLevel` VARCHAR(100),
+  `Description` VARCHAR(500),
+  `Code` CHAR(40),
+  `Subject` CHAR(100),
+  `Title` CHAR(100),
+  `LearningArea` CHAR(100),
+  `StatementLabel` CHAR(40),
+  `GeneralCapability` VARCHAR(200)
+) ENGINE = InnoDB;
+
+
+-- Table `ActivityInCurriculum`
+CREATE TABLE IF NOT EXISTS `activityincurriculum` (
+  `CurriculumID` CHAR(100) NOT NULL,
+  `ActivityID` INT(64) NOT NULL,
+  PRIMARY KEY (`CurriculumID`, `ActivityID`),
+  INDEX `ActivityInCurriculum_Activity_idx` (`ActivityID`),
+  INDEX `ActivityInCurriculum_Curriculum_idx` (`CurriculumID`),
+  CONSTRAINT `ActivityInCurriculum_Activity` FOREIGN KEY (`ActivityID`) REFERENCES `activity` (`ActivityID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `ActivityInCurriculum_Curriculum` FOREIGN KEY (`CurriculumID`) REFERENCES `curriculum` (`CurriculumID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+-- Table `ChildrenCurriculum`
+CREATE TABLE IF NOT EXISTS `childrencurriculum` (
+  `FatherCurriculumID` CHAR(100) NOT NULL,
+  `ChildCurriculumID` CHAR(100) NOT NULL,
+  PRIMARY KEY (`FatherCurriculumID`, `ChildCurriculumID`),
+  INDEX `ChildrenCurriculum_Father_idx` (`FatherCurriculumID`),
+  INDEX `ChildrenCurriculum_Child_idx` (`ChildCurriculumID`)
+) ENGINE = InnoDB;
+
+-- Table `Files`
+CREATE TABLE IF NOT EXISTS `files` (
+  `FileID` INT(64) PRIMARY KEY auto_increment, 
+  `FileName` CHAR(100) NOT NULL,
+  `DiskName` CHAR(100) UNIQUE NOT NULL
+) ENGINE = InnoDB;
+
+-- Table `FilesInActivity`
+CREATE TABLE IF NOT EXISTS `filesinactivity` (
+  `FileID` INT(64) NOT NULL,
+  `ActivityID` INT(64) NOT NULL,
+  PRIMARY KEY (`FileID`, `ActivityID`),
+  INDEX `FilesInActivity_File_idx` (`FileID`),
+  INDEX `FilesInActivity_Activity_idx` (`ActivityID`),
+  CONSTRAINT `FilesInActivity_Activity` FOREIGN KEY (`ActivityID`) REFERENCES `activity` (`ActivityID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Files` FOREIGN KEY (`FileID`) REFERENCES `files` (`FileID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+CREATE TABLE IF NOT EXISTS `audiencerole` (
+  `AudienceRoleID` INT(64) PRIMARY KEY,
+  `AudienceRoleName` VARCHAR(10) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+
+-- Table `AudienceRoleInActivity`
+CREATE TABLE IF NOT EXISTS `audienceroleinactivity` (
+  `AudienceRoleID` INT(64) NOT NULL,
+  `ActivityID` INT(64) NOT NULL,
+  PRIMARY KEY (`AudienceRoleID`, `ActivityID`),
+  INDEX `AudienceRoleInActivity_Activity_idx` (`ActivityID`),
+  INDEX `AudienceRoleInActivity_AudienceRole_idx` (`AudienceRoleID`),
+  CONSTRAINT `AudienceRoleInActivity_Activity` FOREIGN KEY (`ActivityID`) REFERENCES `activity` (`ActivityID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `AudienceRoleInActivity_AudienceRole` FOREIGN KEY (`AudienceRoleID`) REFERENCES `audiencerole` (`AudienceRoleID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `yearlevel` (
+  `YearLevelID` INT(64) PRIMARY KEY,
+  `YearLevelName` VARCHAR(20) NOT NULL UNIQUE
+) ENGINE = InnoDB;
+
+-- Table `YearLevelInActivity`
+CREATE TABLE IF NOT EXISTS `yearlevelinactivity` (
+  `YearLevelID` INT(64) NOT NULL,
+  `ActivityID` INT(64) NOT NULL,
+  PRIMARY KEY (`YearLevelID`, `ActivityID`),
+  INDEX `YearLevelInActivity_Activity_idx` (`ActivityID`),
+  INDEX `YearLevelInActivity_YearLevel_idx` (`YearLevelID`),
+  CONSTRAINT `YearLevelInActivity_Activity` FOREIGN KEY (`ActivityID`) REFERENCES `activity` (`ActivityID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `YearLevelInActivity_YearLevel` FOREIGN KEY (`YearLevelID`) REFERENCES `yearlevel` (`YearLevelID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB;
+
+
+-- INSERT INTO `scienceisland`.`audiencerole` (`AudienceRoleID`, `AudienceRoleName`) VALUES ('1', 'School');
+-- INSERT INTO `scienceisland`.`audiencerole` (`AudienceRoleID`, `AudienceRoleName`) VALUES ('2', 'Teacher');
+-- INSERT INTO `scienceisland`.`audiencerole` (`AudienceRoleID`, `AudienceRoleName`) VALUES ('3', 'Parent');
+-- INSERT INTO `scienceisland`.`audiencerole` (`AudienceRoleID`, `AudienceRoleName`) VALUES ('4', 'Student');
+
+
+INSERT INTO AudienceRole (`AudienceRoleID`, `AudienceRoleName`) VALUES ('1', 'School');
+INSERT INTO AudienceRole (`AudienceRoleID`, `AudienceRoleName`) VALUES ('2', 'Teacher');
+INSERT INTO AudienceRole (`AudienceRoleID`, `AudienceRoleName`) VALUES ('3', 'Parent');
+INSERT INTO AudienceRole (`AudienceRoleID`, `AudienceRoleName`) VALUES ('4', 'Student');
+
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('0', 'All');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('1', 'Year 1');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('2', 'Year 2');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('3', 'Year 3');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('4', 'Year 4');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('5', 'Year 5');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('6', 'Year 6');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('7', 'Year 7');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('8', 'Year 8');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('9', 'Year 9');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('10', 'Year 10');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('11', 'Year 11');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('12', 'Year 12');
+INSERT INTO YearLevel (`YearLevelID`, `YearLevelName`) VALUES ('13', 'Foundation');
+INSERT INTO realm (`RealmID`, `RealmName`) VALUES ('1', 'realm1');
+INSERT INTO realm (`RealmID`, `RealmName`) VALUES ('2', 'realm2');
+INSERT INTO realm (`RealmID`, `RealmName`) VALUES ('3', 'realm3');
+
+INSERT INTO topic (`TopicID`, `TopicName`) VALUES ('1', 'topic1');
+INSERT INTO topic (`TopicID`, `TopicName`) VALUES ('2', 'topic2');
+INSERT INTO topic (`TopicID`, `TopicName`) VALUES ('3', 'topic3');
+
+INSERT INTO keyconcept (`KeyConceptID`, `KeyConceptName`) VALUES ('1', 'keyconcept1');
+INSERT INTO keyconcept (`KeyConceptID`, `KeyConceptName`) VALUES ('2', 'keyconcept2');
+INSERT INTO keyconcept (`KeyConceptID`, `KeyConceptName`) VALUES ('3', 'keyconcept3');
+
+INSERT INTO agerange (`AgeRangeID`, `AgeRangeName`) VALUES ('1', 'agerange1');
+INSERT INTO agerange (`AgeRangeID`, `AgeRangeName`) VALUES ('2', 'agerange2');
+INSERT INTO agerange (`AgeRangeID`, `AgeRangeName`) VALUES ('3', 'agerange3');
+
+
+INSERT INTO scientist (`ScientistID`, `ScientistName`) VALUES ('1', 'scientist1');
+INSERT INTO scientist (`ScientistID`, `ScientistName`) VALUES ('2', 'scientist2');
+INSERT INTO scientist (`ScientistID`, `ScientistName`) VALUES ('3', 'scientist3');
+
+INSERT INTO field (`FieldID`, `FieldName`) VALUES ('1', 'field1');
+INSERT INTO field (`FieldID`, `FieldName`) VALUES ('2', 'field2');
+INSERT INTO field (`FieldID`, `FieldName`) VALUES ('3', 'field3');
+
+ALTER TABLE Realm CHANGE RealmID RealmID INT NOT NULL auto_increment
+ALTER TABLE Realm AUTO_INCREMENT = 20;
+
+
+

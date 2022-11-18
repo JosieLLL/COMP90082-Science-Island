@@ -1,0 +1,16 @@
+.reset-pwd-container {
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 10%;
+    background-color: #fff;
+    padding: 30px 30px 0 30px;
+    .title {
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+    .reset-pwd-form {
+    }
+}

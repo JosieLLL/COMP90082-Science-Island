@@ -1,0 +1,52 @@
+.activity-pool-container {
+    height: 100%;
+    background-color: #fff;
+    padding-top: 0 !important;
+    .ant-layout-has-sider {
+        .ant-layout-sider {
+            box-sizing: border-box;
+            border: 1px solid #aaa4a4;
+            box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+        }
+        .ant-layout {
+            .ant-layout-header {
+                padding: 0 px2Rem(22px);
+                display: flex;
+                justify-content: space-between;
+                height: px2Rem(30px);
+                line-height: px2Rem(30px);
+                margin-bottom: px2Rem(4px);
+                border-bottom: 1px solid #e5e5e5;
+                .poolNum {
+                    font-size: px2Rem(16px);
+                    color: #8c8c8c;
+                }
+            }
+            .ant-layout-content {
+                display: flex;
+                align-content: flex-start;
+                flex-flow: row wrap;
+                overflow-y: scroll;
+                padding: 0 0 0 px2Rem(14px);
+            }
+        }
+    }
+
+    #components-layout-demo-top-side-2 .logo {
+        float: left;
+        width: 120px;
+        height: 31px;
+        margin: 16px 24px 16px 0;
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    .ant-row-rtl #components-layout-demo-top-side-2 .logo {
+        float: right;
+        margin: 16px 0 16px 24px;
+    }
+
+    .site-layout-background {
+        background: #fff;
+    }
+}

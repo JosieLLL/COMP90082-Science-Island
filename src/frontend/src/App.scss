@@ -1,0 +1,24 @@
+@import '~antd/dist/antd.css';
+#root {
+    height: 100%;
+}
+
+.App {
+    font-size: px2Rem(20px);
+    height: 100%;
+    padding-top: 64px;
+    position: relative;
+    .ant-spin {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.05);
+        z-index: 999;
+        .ant-spin-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

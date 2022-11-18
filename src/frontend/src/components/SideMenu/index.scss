@@ -1,0 +1,13 @@
+.menu_container {
+    .ant-menu-item {
+        height: px2Rem(60px);
+        line-height: px2Rem(60px);
+        margin-top: px2Rem(5px);
+        color: white;
+        font-weight: bold;
+        .ant-menu-title-content {
+            border-left: 2px solid white;
+            padding-left: 5px;
+        }
+    }
+}

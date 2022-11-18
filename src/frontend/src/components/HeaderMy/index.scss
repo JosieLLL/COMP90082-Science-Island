@@ -1,0 +1,26 @@
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    .ant-image {
+        .ant-image-img {
+            height: 100%;
+            vertical-align: top;
+        }
+    }
+    .loginBtnBox {
+        height: 100%;
+        width: 15%;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "changelog-init": "conventional-changelog -p angular -i docs/CHANGELOG.md -s -r 0",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "conventional-changelog-cli": "^2.2.2",
+    "husky": "^7.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
